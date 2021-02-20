@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace dotnetstrawberry
 {
     public partial class Form1 : Form
-    { //1.0
+    { 
         public Form1()
         {
             InitializeComponent();
