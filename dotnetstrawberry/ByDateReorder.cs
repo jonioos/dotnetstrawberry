@@ -12,14 +12,26 @@ namespace dotnetstrawberry
         /// <summary>
         /// Funzione utile a riordinare una cartella
         /// </summary>
-        /// <param name="oldDirectory"></param>
-        /// <param name="extension"></param>
-        /// <param name="newDirectory"></param>
+        /// <param name="oldDirectory">
+        /// Percorso originale
+        /// </param>
+        /// <param name="extension">
+        /// Estensione
+        /// </param>
+        /// <param name="initialDate">
+        /// Data iniziale del range
+        /// </param>
+        /// <param name="finalDate">
+        /// Data finale del range
+        /// </param>
+        /// <param name="includeDay">
+        /// Includere o no il giorno esatto nel nome della cartella di destinazione
+        /// </param>
         public static void Reorder(string oldDirectory, string extension, DateTime initialDate, DateTime finalDate, bool includeDay)
         {
-            if(initialDate < finalDate)
+            if (DateParam(initialDate) > DateParam(initialDate))
                 throw new Exception("Errore, la data finale non può superare la data iniziale");
-           
+            
             if (Directory.Exists(oldDirectory))
             {
                 fileDatabase = FilesInsideDir(oldDirectory);
@@ -31,43 +43,43 @@ namespace dotnetstrawberry
                     else
                         newDirectory = oldDirectory + $@"\File da {MeseInItaliano(initialDate.Month)} {initialDate.Year} a {MeseInItaliano(finalDate.Month)} {finalDate.Year}";
 
-                    if (item.lastModifiedTime >= initialDate && item.lastModifiedTime <= finalDate)
+                    if (DateParam(item.LastModifiedTime) >= DateParam(initialDate) && DateParam(item.LastModifiedTime) <= DateParam(finalDate))
                     {
                         if(extension == ".*")
                         {
                             if (!Directory.Exists(newDirectory))
                                 Directory.CreateDirectory(newDirectory);
 
-                            if (!File.Exists(newDirectory + item.name + item.extension))
+                            if (!File.Exists(newDirectory + item.Name + item.Extension))
                             {
-                                File.Move(item.directory, newDirectory + @"\" + item.name + item.extension);
-                                report += PrintReport(item.name, item.extension, item.size);
+                                File.Move(item.Directory, newDirectory + @"\" + item.Name + item.Extension);
+                                report += PrintReport(item.Name, item.Extension, item.Size);
                             }
                             else
                             {
                                 //Duplicate
-                                File.Move(item.directory, newDirectory + @"\" + item.name + "[dx]" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + item.extension);
-                                report += PrintReport(item.name, item.extension, item.size);
+                                File.Move(item.Directory, newDirectory + @"\" + item.Name + "[dx]" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + item.Extension);
+                                report += PrintReport(item.Name, item.Extension, item.Size);
                             }
                         }
                         else
                         {
-                            if(item.extension == extension.ToLower())
+                            if(item.Extension == extension.ToLower())
                             {
-                                newDirectory += $" ({item.extension})";
+                                newDirectory += $" ({item.Extension})";
                                 if (!Directory.Exists(newDirectory))
                                     Directory.CreateDirectory(newDirectory);
 
-                                if (!File.Exists(newDirectory + item.name + item.extension))
+                                if (!File.Exists(newDirectory + item.Name + item.Extension))
                                 {
-                                    File.Move(item.directory, newDirectory + @"\" + item.name + item.extension);
-                                    report += PrintReport(item.name, item.extension, item.size);
+                                    File.Move(item.Directory, newDirectory + @"\" + item.Name + item.Extension);
+                                    report += PrintReport(item.Name, item.Extension, item.Size);
                                 }
                                 else
                                 {
                                     //Duplicate
-                                    File.Move(item.directory, newDirectory + @"\" + item.name + "[dx]" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + item.extension);
-                                    report += PrintReport(item.name, item.extension, item.size);
+                                    File.Move(item.Directory, newDirectory + @"\" + item.Name + "[dx]" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + item.Extension);
+                                    report += PrintReport(item.Name, item.Extension, item.Size);
                                 }
                             }
                         }
@@ -84,7 +96,9 @@ namespace dotnetstrawberry
         /// Funzione utile ad ottenere il mese per intero in lingua italiana
         /// </summary>
         /// <param name="mese"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// Nome del mese in italiano
+        /// </returns>
         private static string MeseInItaliano(int mese)
         {
             switch (mese)
@@ -116,6 +130,23 @@ namespace dotnetstrawberry
                 default:
                     return "";
             }
+        }
+        /// <summary>
+        /// Funzione utile a ritornare una data senza l'orario nel formato gg/mm/YYYY
+        /// </summary>
+        /// <param name="d">
+        /// Data qualsiasi in formato DateTime
+        /// </param>
+        /// <returns>
+        /// Ritorna la data nel formato gg/mm/YYYY
+        /// </returns>
+        private static DateTime DateParam(DateTime d)
+        {
+            int day = d.Day;
+            int month = d.Month;
+            int year = d.Year;
+            DateTime daritornare = DateTime.Parse($"{d.Day}/{d.Month}/{d.Year}");
+            return daritornare;
         }
     }
 }

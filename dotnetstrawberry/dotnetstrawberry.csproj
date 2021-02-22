@@ -49,6 +49,7 @@
     <Compile Include="AdvancedReorder.cs" />
     <Compile Include="ByDateReorder.cs" />
     <Compile Include="EasyReorder.cs" />
+    <Compile Include="FileStructure.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

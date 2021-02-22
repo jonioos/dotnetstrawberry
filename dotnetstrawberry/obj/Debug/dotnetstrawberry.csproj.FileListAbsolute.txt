@@ -1,0 +1,10 @@
+C:\Users\Vincenzo\source\repos\dotnetstrawberry\dotnetstrawberry\bin\Debug\dotnetstrawberry.exe.config
+C:\Users\Vincenzo\source\repos\dotnetstrawberry\dotnetstrawberry\bin\Debug\dotnetstrawberry.exe
+C:\Users\Vincenzo\source\repos\dotnetstrawberry\dotnetstrawberry\bin\Debug\dotnetstrawberry.pdb
+C:\Users\Vincenzo\source\repos\dotnetstrawberry\dotnetstrawberry\obj\Debug\dotnetstrawberry.csprojAssemblyReference.cache
+C:\Users\Vincenzo\source\repos\dotnetstrawberry\dotnetstrawberry\obj\Debug\dotnetstrawberry.Form1.resources
+C:\Users\Vincenzo\source\repos\dotnetstrawberry\dotnetstrawberry\obj\Debug\dotnetstrawberry.Properties.Resources.resources
+C:\Users\Vincenzo\source\repos\dotnetstrawberry\dotnetstrawberry\obj\Debug\dotnetstrawberry.csproj.GenerateResource.cache
+C:\Users\Vincenzo\source\repos\dotnetstrawberry\dotnetstrawberry\obj\Debug\dotnetstrawberry.csproj.CoreCompileInputs.cache
+C:\Users\Vincenzo\source\repos\dotnetstrawberry\dotnetstrawberry\obj\Debug\dotnetstrawberry.exe
+C:\Users\Vincenzo\source\repos\dotnetstrawberry\dotnetstrawberry\obj\Debug\dotnetstrawberry.pdb

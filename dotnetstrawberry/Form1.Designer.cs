@@ -103,7 +103,7 @@ namespace dotnetstrawberry
             this.TextBox5.Name = "TextBox5";
             this.TextBox5.ReadOnly = true;
             this.TextBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextBox5.Size = new System.Drawing.Size(604, 267);
+            this.TextBox5.Size = new System.Drawing.Size(604, 318);
             this.TextBox5.TabIndex = 17;
             // 
             // Button10
@@ -247,7 +247,7 @@ namespace dotnetstrawberry
             // 
             this.Label16.AutoSize = true;
             this.Label16.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label16.Location = new System.Drawing.Point(6, 229);
+            this.Label16.Location = new System.Drawing.Point(6, 250);
             this.Label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label16.Name = "Label16";
             this.Label16.Size = new System.Drawing.Size(100, 40);
@@ -260,12 +260,12 @@ namespace dotnetstrawberry
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBox7.Location = new System.Drawing.Point(13, 272);
+            this.TextBox7.Location = new System.Drawing.Point(13, 293);
             this.TextBox7.Multiline = true;
             this.TextBox7.Name = "TextBox7";
             this.TextBox7.ReadOnly = true;
             this.TextBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextBox7.Size = new System.Drawing.Size(601, 219);
+            this.TextBox7.Size = new System.Drawing.Size(601, 249);
             this.TextBox7.TabIndex = 17;
             // 
             // ComboBox4
@@ -391,7 +391,7 @@ namespace dotnetstrawberry
             this.Button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button14.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.Button14.Location = new System.Drawing.Point(1, 454);
+            this.Button14.Location = new System.Drawing.Point(1, 505);
             this.Button14.Margin = new System.Windows.Forms.Padding(4);
             this.Button14.Name = "Button14";
             this.Button14.Size = new System.Drawing.Size(151, 48);
@@ -423,7 +423,7 @@ namespace dotnetstrawberry
             this.Panel4.Controls.Add(this.Label19);
             this.Panel4.Location = new System.Drawing.Point(153, 0);
             this.Panel4.Name = "Panel4";
-            this.Panel4.Size = new System.Drawing.Size(627, 502);
+            this.Panel4.Size = new System.Drawing.Size(627, 553);
             this.Panel4.TabIndex = 29;
             this.Panel4.Visible = false;
             // 
@@ -445,7 +445,7 @@ namespace dotnetstrawberry
             this.Panel3.Controls.Add(this.TextBox6);
             this.Panel3.Location = new System.Drawing.Point(153, 0);
             this.Panel3.Name = "Panel3";
-            this.Panel3.Size = new System.Drawing.Size(627, 505);
+            this.Panel3.Size = new System.Drawing.Size(627, 556);
             this.Panel3.TabIndex = 28;
             this.Panel3.Visible = false;
             // 
@@ -503,7 +503,7 @@ namespace dotnetstrawberry
             this.Panel1.Controls.Add(this.Label3);
             this.Panel1.Location = new System.Drawing.Point(153, 0);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(626, 505);
+            this.Panel1.Size = new System.Drawing.Size(626, 556);
             this.Panel1.TabIndex = 23;
             // 
             // Label22
@@ -541,7 +541,7 @@ namespace dotnetstrawberry
             this.TextBox4.Name = "TextBox4";
             this.TextBox4.ReadOnly = true;
             this.TextBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextBox4.Size = new System.Drawing.Size(604, 308);
+            this.TextBox4.Size = new System.Drawing.Size(604, 359);
             this.TextBox4.TabIndex = 19;
             // 
             // Label4
@@ -646,7 +646,7 @@ namespace dotnetstrawberry
             this.Panel2.Controls.Add(this.TextBox2);
             this.Panel2.Location = new System.Drawing.Point(153, 0);
             this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(626, 503);
+            this.Panel2.Size = new System.Drawing.Size(626, 554);
             this.Panel2.TabIndex = 24;
             this.Panel2.Visible = false;
             // 
@@ -683,7 +683,7 @@ namespace dotnetstrawberry
             this.TextBox3.Name = "TextBox3";
             this.TextBox3.ReadOnly = true;
             this.TextBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TextBox3.Size = new System.Drawing.Size(604, 216);
+            this.TextBox3.Size = new System.Drawing.Size(604, 267);
             this.TextBox3.TabIndex = 17;
             // 
             // Button7
@@ -701,6 +701,7 @@ namespace dotnetstrawberry
             this.Button7.TabIndex = 16;
             this.Button7.Text = "...";
             this.Button7.UseVisualStyleBackColor = true;
+            this.Button7.Click += new System.EventHandler(this.Button7_Click);
             // 
             // Button6
             // 
@@ -717,6 +718,7 @@ namespace dotnetstrawberry
             this.Button6.TabIndex = 15;
             this.Button6.Text = "...";
             this.Button6.UseVisualStyleBackColor = true;
+            this.Button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // ComboBox2
             // 
@@ -823,7 +825,7 @@ namespace dotnetstrawberry
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.ClientSize = new System.Drawing.Size(779, 503);
+            this.ClientSize = new System.Drawing.Size(779, 554);
             this.Controls.Add(this.Button14);
             this.Controls.Add(this.Panel4);
             this.Controls.Add(this.Panel3);

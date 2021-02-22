@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Threading;
 namespace dotnetstrawberry
 {
     public partial class Form1 : Form
-    { //1.0
+    {
         public Form1()
         {
             InitializeComponent();
@@ -39,8 +39,10 @@ namespace dotnetstrawberry
         {
             try { ByDateReorder.Reorder(ComboBox4.Text, ComboBox5.Text, DateTimePicker1.Value, DateTimePicker2.Value, CheckBox1.Checked); TextBox7.Text += EasyReorder.report; }
             catch (TransferringErrorException ex) { TextBox7.Text += "Errore durante il trasferimento di un file, RT Error: " + ex.Message + Environment.NewLine; }
+            catch (Exception ex) { TextBox7.Text += "Errore: " + ex.Message + Environment.NewLine; }
         }
 
+        #region GUIControl
         private void Button3_Click(object sender, EventArgs e)
         {
             if(Panel1.Visible == false)
@@ -84,6 +86,7 @@ namespace dotnetstrawberry
                 Panel1.Visible = false;
             }
         }
+        #endregion
 
         private void Button12_Click(object sender, EventArgs e)
         {
@@ -112,6 +115,26 @@ namespace dotnetstrawberry
             if (result == DialogResult.OK)
             {
                 ComboBox1.Text = f.SelectedPath;
+            }
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog f = new FolderBrowserDialog();
+            DialogResult result = f.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                TextBox2.Text = f.SelectedPath;
+            }
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog f = new FolderBrowserDialog();
+            DialogResult result = f.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ComboBox2.Text = f.SelectedPath;
             }
         }
     }

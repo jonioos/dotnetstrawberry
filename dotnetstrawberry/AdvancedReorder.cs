@@ -12,9 +12,15 @@ namespace dotnetstrawberry
         /// <summary>
         /// Funzione utile a riordinare una cartella
         /// </summary>
-        /// <param name="oldDirectory"></param>
-        /// <param name="extension"></param>
-        /// <param name="newDirectory"></param>
+        /// <param name="oldDirectory">
+        /// Directory iniziale
+        /// </param>
+        /// <param name="extension">
+        /// Estensione di riferimento
+        /// </param>
+        /// <param name="newDirectory">
+        /// Directory finale
+        /// </param>
         public static void Reorder(string oldDirectory, string extension, string newDirectory)
         {
             if (Directory.Exists(oldDirectory))
@@ -22,21 +28,21 @@ namespace dotnetstrawberry
                 fileDatabase = FilesInsideDir(oldDirectory);
                 foreach (var item in fileDatabase)
                 {
-                    if (item.extension == extension)
+                    if (item.Extension == extension)
                     {
                         if (!Directory.Exists(newDirectory))
                             Directory.CreateDirectory(newDirectory);
 
-                        if (!File.Exists(newDirectory + item.name + item.extension))
+                        if (!File.Exists(newDirectory + item.Name + item.Extension))
                         {
-                            File.Move(item.directory, newDirectory + @"\" + item.name + item.extension);
-                            report += PrintReport(item.name, item.extension, item.size);
+                            File.Move(item.Directory, newDirectory + @"\" + item.Name + item.Extension);
+                            report += PrintReport(item.Name, item.Extension, item.Size);
                         }
                         else
                         {
                             //Duplicate
-                            File.Move(item.directory, newDirectory + @"\" + item.name + "[dx]" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + item.extension);
-                            report += PrintReport(item.name, item.extension, item.size);
+                            File.Move(item.Directory, newDirectory + @"\" + item.Name + "[dx]" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + item.Extension);
+                            report += PrintReport(item.Name, item.Extension, item.Size);
                         }
                     }
                     fileDatabase = FilesInsideDir(oldDirectory);
