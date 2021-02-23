@@ -86,10 +86,20 @@ namespace dotnetstrawberry
             this.Button9 = new System.Windows.Forms.Button();
             this.Button3 = new System.Windows.Forms.Button();
             this.Button4 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.label30 = new System.Windows.Forms.Label();
+            this.button17 = new System.Windows.Forms.Button();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.Panel4.SuspendLayout();
             this.Panel3.SuspendLayout();
             this.Panel1.SuspendLayout();
             this.Panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // TextBox5
@@ -820,12 +830,136 @@ namespace dotnetstrawberry
             this.Button4.UseVisualStyleBackColor = false;
             this.Button4.Click += new System.EventHandler(this.Button4_Click);
             // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.button15.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.button15.Location = new System.Drawing.Point(2, 181);
+            this.button15.Margin = new System.Windows.Forms.Padding(4);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(151, 48);
+            this.button15.TabIndex = 32;
+            this.button15.Text = "Find Duplicate";
+            this.button15.UseVisualStyleBackColor = false;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(4, 2);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(191, 40);
+            this.label30.TabIndex = 11;
+            this.label30.Text = "Find Duplicate";
+            // 
+            // button17
+            // 
+            this.button17.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.button17.FlatAppearance.BorderSize = 0;
+            this.button17.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.button17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.button17.Location = new System.Drawing.Point(316, 58);
+            this.button17.Margin = new System.Windows.Forms.Padding(4);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(297, 30);
+            this.button17.TabIndex = 12;
+            this.button17.Text = "Find duplicate";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox8.Location = new System.Drawing.Point(13, 132);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox8.Size = new System.Drawing.Size(601, 410);
+            this.textBox8.TabIndex = 17;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(8, 89);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(100, 40);
+            this.label28.TabIndex = 18;
+            this.label28.Text = "Report";
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.label24);
+            this.panel5.Controls.Add(this.button16);
+            this.panel5.Controls.Add(this.comboBox6);
+            this.panel5.Controls.Add(this.label28);
+            this.panel5.Controls.Add(this.textBox8);
+            this.panel5.Controls.Add(this.button17);
+            this.panel5.Controls.Add(this.label30);
+            this.panel5.Location = new System.Drawing.Point(153, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(627, 553);
+            this.panel5.TabIndex = 30;
+            // 
+            // button16
+            // 
+            this.button16.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.button16.FlatAppearance.BorderSize = 0;
+            this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.button16.Location = new System.Drawing.Point(237, 61);
+            this.button16.Margin = new System.Windows.Forms.Padding(4);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(30, 25);
+            this.button16.TabIndex = 20;
+            this.button16.Text = "...";
+            this.button16.UseVisualStyleBackColor = true;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(13, 61);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(217, 25);
+            this.comboBox6.TabIndex = 19;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(10, 41);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(110, 17);
+            this.label24.TabIndex = 21;
+            this.label24.Text = "Directory to scan:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
             this.ClientSize = new System.Drawing.Size(779, 554);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.button15);
             this.Controls.Add(this.Button14);
             this.Controls.Add(this.Panel4);
             this.Controls.Add(this.Panel3);
@@ -847,6 +981,8 @@ namespace dotnetstrawberry
             this.Panel1.PerformLayout();
             this.Panel2.ResumeLayout(false);
             this.Panel2.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -909,6 +1045,15 @@ namespace dotnetstrawberry
         internal System.Windows.Forms.Button Button9;
         internal System.Windows.Forms.Button Button3;
         internal System.Windows.Forms.Button Button4;
+        internal System.Windows.Forms.Button button15;
+        internal System.Windows.Forms.Label label30;
+        internal System.Windows.Forms.Button button17;
+        internal System.Windows.Forms.TextBox textBox8;
+        internal System.Windows.Forms.Label label28;
+        internal System.Windows.Forms.Panel panel5;
+        internal System.Windows.Forms.Button button16;
+        internal System.Windows.Forms.ComboBox comboBox6;
+        internal System.Windows.Forms.Label label24;
     }
 }
 

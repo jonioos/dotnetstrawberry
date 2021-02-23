@@ -83,9 +83,7 @@ namespace dotnetstrawberry
             if (recursive)
             {
                 List<FileStructure> local = new List<FileStructure>();
-                foreach(var d in Directory.GetDirectories(path))
-                {
-                    foreach(string file in Directory.GetFiles(d))
+                    foreach (string file in Directory.GetFiles(path, "*.*", SearchOption.AllDirectories))
                     {
                         string nameFile;
                         decimal size;
@@ -106,25 +104,24 @@ namespace dotnetstrawberry
                         };
                         local.Add(obj);
                     }
-                }
+                    foreach(var item in FilesInsideDir(path))
+                    {
+                        local.Add(item);
+                    }
                 return local;
             }
             else
-            {
-                FilesInsideDir(path);
-                return null;
+            {   
+                return FilesInsideDir(path); 
             }
         }
         private static byte[] SHA256calc(string p)
         {
-            var dir = new DirectoryInfo(p);
-            FileInfo[] files = dir.GetFiles();
+            FileInfo files = new FileInfo(p);
             using (SHA256 mySHA256 = SHA256.Create())
-            foreach (FileInfo fInfo in files)
-            {
                 try
                 {
-                    FileStream fileStream = fInfo.Open(FileMode.Open);
+                    FileStream fileStream = files.Open(FileMode.Open);
                     fileStream.Position = 0;
                     byte[] hashValue = mySHA256.ComputeHash(fileStream);
                     fileStream.Close();
@@ -137,9 +134,18 @@ namespace dotnetstrawberry
                 catch (UnauthorizedAccessException e)
                 {
                     throw new UnauthorizedAccessException($"Errore: {e.Message}");
-                }
-            }
+                }     
             throw new Exception("Errore durante il calcolo");
+        }
+
+        private static string FromByteToString(byte[] hashcalc)
+        {
+            string result = "";
+            foreach (var car in hashcalc)
+            {
+                result += car.ToString();
+            }
+            return result;
         }
 
         /// <summary>
@@ -190,9 +196,6 @@ namespace dotnetstrawberry
             }
             fileDatabase = local;
         }
-
-
-
         /// <summary>
         /// Funzione utile a riordinare una cartella
         /// </summary>
@@ -502,6 +505,149 @@ namespace dotnetstrawberry
         {
             string toreturnreport = $"Trasferring {nameFile}{extension} size: {size}{Environment.NewLine}";
             return toreturnreport;
+        }
+        /// <summary>
+        /// Struttura dei file duplicati
+        /// </summary>
+        public struct DuplicateFile
+        {
+            private string name;
+            private string directory;
+            private string nameClone;
+            private string directoryClone;
+            private byte[] hashCalc;
+            private byte[] hashCalcClone;
+
+            #region Properties
+            public string Name
+            {
+                get { return name; }
+                set
+                {
+                    if (value is string)
+                    {
+                        if (value != "")
+                        {
+                            name = value;
+                        }
+                        else
+                        {
+                            throw new NullReferenceException("Il valore non può essere nullo");
+                        }
+                    }
+                    else
+                    {
+                        throw new FormatException("Il valore deve essere una stringa");
+                    }
+                }
+            }
+
+            public string Directory
+            {
+                get { return directory; }
+                set
+                {
+                    if (value is string)
+                    {
+                        if (value != "")
+                        {
+                            directory = value;
+                        }
+                        else
+                        {
+                            throw new NullReferenceException("Il valore non può essere nullo");
+                        }
+                    }
+                    else
+                    {
+                        throw new FormatException("Il valore deve essere una stringa");
+                    }
+                }
+            }
+
+            public string NameClone
+            {
+                get { return nameClone; }
+                set
+                {
+                    if (value is string)
+                    {
+                        if (value != "")
+                        {
+                            nameClone = value;
+                        }
+                        else
+                        {
+                            throw new NullReferenceException("Il valore non può essere nullo");
+                        }
+                    }
+                    else
+                    {
+                        throw new FormatException("Il valore deve essere una stringa");
+                    }
+                }
+            }
+
+            public string DirectoryClone
+            {
+                get { return directoryClone; }
+                set
+                {
+                    if (value is string)
+                    {
+                        if (value != "")
+                        {
+                            directoryClone = value;
+                        }
+                        else
+                        {
+                            throw new NullReferenceException("Il valore non può essere nullo");
+                        }
+                    }
+                    else
+                    {
+                        throw new FormatException("Il valore deve essere una stringa");
+                    }
+                }
+            }
+
+            public byte[] HashCalc { get => hashCalc; set => hashCalc = value; }
+
+            public byte[] HashCalcClone { get => hashCalcClone; set => hashCalcClone = value; }
+            #endregion
+
+        }
+        /// <summary>
+        /// Metodo utile a stampare le strutture che compongono i file e le strutture dei file duplicati
+        /// </summary>
+        /// <param name="database">
+        /// Database in formato FileStructure o DuplicateFile
+        /// </param>
+        /// <param name="path">
+        /// Percorso dove verrà salvato il report
+        /// </param>
+        public static void PrintList(object database, string path)
+        {
+            if (database is List<FileStructure>)
+            {
+                var d = (List<FileStructure>)database;
+                string r = "";
+                foreach (var item in d)
+                {
+                    r += $"{item.Directory}|{item.Name}|{item.HashValue.ToString()}|{Environment.NewLine}";
+                }
+                File.WriteAllText(path, r);
+            }
+            else if (database is List<DuplicateFile>)
+            {
+                var d = (List<DuplicateFile>)database;
+                string r = "";
+                foreach (var item in d)
+                {
+                    r += $"{item.Directory}|{item.Name}{Environment.NewLine}";
+                }
+                File.WriteAllText(path, r);
+            }
         }
     }
 }

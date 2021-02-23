@@ -137,5 +137,10 @@ namespace dotnetstrawberry
                 ComboBox2.Text = f.SelectedPath;
             }
         }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            textBox8.Text += FindDuplicate.Find(comboBox6.Text, true);
+        }
     }
 }
